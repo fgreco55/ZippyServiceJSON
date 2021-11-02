@@ -5,7 +5,9 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/cactus"
     tools:context=".ui.main.MainFragment">
+
 
     <TextView
         android:id="@+id/heading_textview"
@@ -13,28 +15,28 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/rock_salt"
         android:text="@string/accessing_zip_code_info"
-        android:textColor="#673AB7"
+        android:textColor="#FF9800"
         android:textSize="32sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.117" />
-
+        app:layout_constraintVertical_bias="0.044" />
 
     <Button
         android:id="@+id/submit_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/gogreen"
         android:text="@string/submit"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="@+id/input_edittext"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.482"
+        app:layout_constraintHorizontal_bias="0.517"
         app:layout_constraintStart_toEndOf="@+id/input_edittext"
         app:layout_constraintTop_toTopOf="@+id/input_edittext"
-        app:layout_constraintVertical_bias="0.625" />
+        app:layout_constraintVertical_bias="0.687" />
 
     <EditText
         android:id="@+id/input_edittext"
@@ -43,11 +45,12 @@
         android:layout_marginStart="4dp"
         android:gravity="center"
         android:text="@string/enter_zipcode"
+        android:textColor="#FF9800"
         android:textSize="32sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/heading_textview"
-        app:layout_constraintVertical_bias="0.108" />
+        app:layout_constraintVertical_bias="0.056" />
 
 
     <TextView
@@ -57,20 +60,23 @@
         android:layout_marginTop="96dp"
         android:layout_marginEnd="32dp"
         android:text="@string/zipcode"
+        android:textColor="#FF9800"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBaseline_toBaselineOf="@+id/zipcode_textview"
+        app:layout_constraintEnd_toEndOf="@+id/country_label"
         app:layout_constraintEnd_toStartOf="@+id/zipcode_textview"
         app:layout_constraintTop_toBottomOf="@+id/input_edittext" />
 
     <TextView
         android:id="@+id/zipcode_textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="28dp"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="32dp"
+        android:background="#FAF7F7"
         android:gravity="start"
-        android:text="@string/zipcode_goes_here"
-        android:textColor="@color/purple_500"
+        android:paddingStart="10dp"
+        android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/country_textview"
         app:layout_constraintStart_toEndOf="@+id/zipcode_label"
@@ -80,24 +86,24 @@
         android:id="@+id/country_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
         android:layout_marginEnd="32dp"
         android:text="@string/country"
+        android:textColor="#FF9800"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBaseline_toBaselineOf="@+id/country_textview"
-        app:layout_constraintEnd_toStartOf="@+id/country_textview"
-        app:layout_constraintHorizontal_bias="0.047"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/state_label"
+        app:layout_constraintEnd_toStartOf="@+id/country_textview" />
 
     <TextView
         android:id="@+id/country_textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="268dp"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="332dp"
+        android:background="#FAF7F7"
         android:gravity="start"
-        android:text="@string/country_goes_here"
-        android:textColor="@color/purple_500"
+        android:paddingStart="10dp"
+        android:textColor="@color/black"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/state_textview" />
@@ -106,56 +112,111 @@
         android:id="@+id/state_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
         android:layout_marginEnd="32dp"
         android:text="@string/state"
+        android:textColor="#FF9800"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBaseline_toBaselineOf="@+id/state_textview"
-        app:layout_constraintEnd_toStartOf="@+id/state_textview"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintEnd_toEndOf="@+id/city_label"
+        app:layout_constraintEnd_toStartOf="@+id/state_textview" />
+
 
     <TextView
         android:id="@+id/state_textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="88dp"
+        android:background="#FAF7F7"
         android:gravity="start"
-        android:text="@string/state_goes_here"
-        android:textColor="@color/purple_500"
+        android:paddingStart="10dp"
+        android:textColor="@color/black"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/state_label"
+        app:layout_constraintStart_toStartOf="@+id/city_textview"
         app:layout_constraintTop_toBottomOf="@+id/country_textview" />
 
     <TextView
         android:id="@+id/city_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginStart="112dp"
+        android:layout_marginBottom="212dp"
         android:text="City"
+        android:textColor="#FF9800"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintBaseline_toBaselineOf="@+id/city_textview"
-        app:layout_constraintEnd_toStartOf="@+id/city_textview"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/city_textview"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="212dp"
+        android:background="#FAF7F7"
+        android:gravity="start"
+        android:paddingStart="10dp"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/city_label" />
+
+
+    <TextView
+        android:id="@+id/latitude_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginEnd="88dp"
-        android:gravity="start"
-        android:text="City goes here..."
-        android:textColor="@color/purple_500"
+        android:layout_marginStart="64dp"
+        android:layout_marginBottom="152dp"
+        android:text="Latitude"
+        android:textColor="#FF9800"
         android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/city_label"
-        app:layout_constraintTop_toBottomOf="@+id/state_textview" />
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
+    <TextView
+        android:id="@+id/latitude_textview"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="152dp"
+        android:background="#FAF7F7"
+        android:gravity="start"
+        android:paddingStart="10dp"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/latitude_label" />
+
+
+    <TextView
+        android:id="@+id/longitude_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="44dp"
+        android:layout_marginBottom="100dp"
+        android:text="Longitude"
+        android:textColor="#FF9800"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/longitude_textview"
+        android:layout_width="200dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="92dp"
+        android:background="#FAF7F7"
+        android:gravity="start"
+        android:paddingStart="10dp"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/longitude_label" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
@@ -169,13 +230,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="20dp" />
+        app:layout_constraintGuide_begin="16dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="20dp" />
+        app:layout_constraintGuide_begin="-3dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

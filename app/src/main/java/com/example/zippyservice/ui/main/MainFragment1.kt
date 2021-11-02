@@ -1,5 +1,6 @@
 package com.example.zippyservice.ui.main
 
+import android.graphics.Color
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.util.Log
@@ -11,8 +12,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import com.example.zippyservice.R
-import com.example.zippyservice.ui.main.MainViewModel
 
 
 class MainFragment : Fragment() {
@@ -30,6 +31,12 @@ class MainFragment : Fragment() {
     private lateinit var st: TextView
     private lateinit var ctt: TextView
 
+    private lateinit var lat: TextView
+    private lateinit var long: TextView
+
+    /* ***********************************************************
+     onCreateView() - When fragment is first created
+     */
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -42,6 +49,9 @@ class MainFragment : Fragment() {
         return myroot
     }
 
+    /* ***********************************************************
+     * findViews() - convenience method
+     */
     fun findViews(mr: View)  {
         et = mr.findViewById(R.id.input_edittext)
         sb = mr.findViewById(R.id.submit_button)
@@ -49,12 +59,20 @@ class MainFragment : Fragment() {
         ct = mr.findViewById(R.id.country_textview)
         st = mr.findViewById(R.id.state_textview)
         ctt = mr.findViewById(R.id.city_textview)
+
+        lat = mr.findViewById(R.id.latitude_textview)
+        long = mr.findViewById(R.id.longitude_textview)
+
     }
 
+    /* ***********************************************************
+    * onActivityCreated() - When parent Activity created
+    */
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
+        // Check for <CR> on entered Zipcode ---------------------------------
         et.setOnKeyListener(object : View.OnKeyListener {
             override fun onKey(myview: View?, keyCode: Int, event: KeyEvent): Boolean {
                 Log.i("Frank", "Inside onKey()")
@@ -66,17 +84,21 @@ class MainFragment : Fragment() {
             }
         })
 
+        // When Submit button clicked/touched ---------------------------------
         sb.setOnClickListener {
             Log.i("Frank", "Inside onClick()")
             var serviceReturn = viewModel.getZipInfo(et.getText().toString())
             Log.i("Frank", "SUBMIT: [" + serviceReturn.toString() + "]")
         }
 
+        // What to do when ViewModel's data changes (when service response arrives) -------
         viewModel.response.observe(viewLifecycleOwner, {
             zt.setText(it.zipcode.toString())
             ct.setText(it.country.toString())
             st.setText(it.places.get(0).state)
             ctt.setText(it.places.get(0).place_name)
+            lat.setText(it.places.get(0).latitude)
+            long.setText(it.places.get(0).longitude)
         })
     }
 }

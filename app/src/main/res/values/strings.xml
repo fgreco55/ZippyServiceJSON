@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">ZippyServiceJSON</string>
+    <string name="app_name"> </string>
     <string name="enter_zipcode">Enter Zipcode</string>
     <string name="submit">Submit</string>
     <string name="accessing_zip_code_info">Zippy Service 2.0</string>
