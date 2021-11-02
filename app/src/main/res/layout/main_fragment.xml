@@ -16,7 +16,7 @@
         android:fontFamily="@font/rock_salt"
         android:text="@string/accessing_zip_code_info"
         android:textColor="#FF9800"
-        android:textSize="32sp"
+        android:textSize="55sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

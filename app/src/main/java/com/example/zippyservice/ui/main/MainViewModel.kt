@@ -21,10 +21,8 @@ class MainViewModel : ViewModel() {
                 _response.value = ZipcodeApi.retrofitService.getProperties(zip)
             } catch (ex: Exception) {
                 print("************************************************")
-                print("************************************************")
-                print("************************************************")
-
                 ex.printStackTrace()
+                print("************************************************")
             }
             showData()
         }
