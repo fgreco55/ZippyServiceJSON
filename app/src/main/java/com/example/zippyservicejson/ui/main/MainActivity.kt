@@ -1,8 +1,8 @@
-package com.example.zippyservice.ui.main
+package com.example.zippyservicejson.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.zippyservice.R
+import com.example.zippyservicejson.R
 
 class MainActivity : AppCompatActivity() {
 

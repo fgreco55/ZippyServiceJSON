@@ -1,12 +1,13 @@
-package com.example.zippyservice.ui.main
+package com.example.zippyservicejson.ui.main
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.zippyservice.network.ZipcodeApi
-import com.example.zippyservice.network.ZipcodeResponse
+import com.example.zippyservicejson.network.ZipcodeApi
+import com.example.zippyservicejson.network.ZipcodeResponse
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
 class MainViewModel : ViewModel() {
@@ -18,6 +19,7 @@ class MainViewModel : ViewModel() {
 
         viewModelScope.launch {
             try {
+                delay(2000)     // artificial delay... notice the UI is still responsive...
                 _response.value = ZipcodeApi.retrofitService.getProperties(zip)
             } catch (ex: Exception) {
                 print("************************************************")

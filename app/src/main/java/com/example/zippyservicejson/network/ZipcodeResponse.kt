@@ -1,4 +1,4 @@
-package com.example.zippyservice.network
+package com.example.zippyservicejson.network
 
 import com.squareup.moshi.Json
 

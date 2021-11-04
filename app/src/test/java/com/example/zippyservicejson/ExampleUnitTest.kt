@@ -1,4 +1,4 @@
-package com.example.zippyservice
+package com.example.zippyservicejson
 
 import org.junit.Test
 

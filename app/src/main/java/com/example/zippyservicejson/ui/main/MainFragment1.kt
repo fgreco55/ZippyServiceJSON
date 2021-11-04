@@ -1,6 +1,5 @@
-package com.example.zippyservice.ui.main
+package com.example.zippyservicejson.ui.main
 
-import android.graphics.Color
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
 import android.util.Log
@@ -12,8 +11,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import androidx.core.content.ContextCompat
-import com.example.zippyservice.R
+import com.example.zippyservicejson.R
+import kotlinx.coroutines.delay
 
 
 class MainFragment : Fragment() {
@@ -77,7 +76,7 @@ class MainFragment : Fragment() {
             override fun onKey(myview: View?, keyCode: Int, event: KeyEvent): Boolean {
                 Log.i("Frank", "Inside onKey()")
                 if (keyCode == KeyEvent.KEYCODE_ENTER && event.action == KeyEvent.ACTION_DOWN) {
-                    viewModel.getZipInfo(et.getText().toString())
+                    sb.callOnClick()        // see below
                     return true
                 } else
                     return false
@@ -88,7 +87,7 @@ class MainFragment : Fragment() {
         sb.setOnClickListener {
             Log.i("Frank", "Inside onClick()")
             var serviceReturn = viewModel.getZipInfo(et.getText().toString())
-            Log.i("Frank", "SUBMIT: [" + serviceReturn.toString() + "]")
+            sb.setText("working...")
         }
 
         // What to do when ViewModel's data changes (when service response arrives) -------
@@ -99,6 +98,7 @@ class MainFragment : Fragment() {
             ctt.setText(it.places.get(0).place_name)
             lat.setText(it.places.get(0).latitude)
             long.setText(it.places.get(0).longitude)
+            sb.setText("SUBMIT")
         })
     }
 }
